@@ -7,6 +7,7 @@ import PengumumanScreen from "../screens/pengumuman/PengumumanScreen";
 import LayananScreen from "../screens/layanan/LayananScreen";
 import DokumenScreen from "../screens/dokumen/DokumenScreen";
 import PanduanScreen from "../screens/panduan/PanduanScreen";
+import AllNewsScreen from "../screens/home/AllNewsScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -20,6 +21,7 @@ export default function HomeStack() {
       <Stack.Screen name="LayananHome" component={LayananScreen} />
       <Stack.Screen name="DokumenHome" component={DokumenScreen} />
       <Stack.Screen name="PanduanHome" component={PanduanScreen} />
+      <Stack.Screen name="AllNewsHome" component={AllNewsScreen} />
     </Stack.Navigator>
   );
 }

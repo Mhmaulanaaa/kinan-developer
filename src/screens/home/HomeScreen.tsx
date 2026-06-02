@@ -4,7 +4,6 @@ import { Ionicons, Feather, FontAwesome } from "@expo/vector-icons";
 
 import { useNavigation } from "@react-navigation/native";
 
-
 const quickMenus = [
   {
     title: "Chat Internal",
@@ -97,9 +96,18 @@ export default function HomeScreen() {
               </Text>
             </View>
 
-            <View className="bg-white/20 p-3 rounded-full">
-              <Ionicons name="notifications-outline" size={22} color="white" />
-            </View>
+            <TouchableOpacity
+              activeOpacity={0.8}
+              onPress={() => navigation.navigate("Notifications")}
+            >
+              <View className="bg-white/20 p-3 rounded-full">
+                <Ionicons
+                  name="notifications-outline"
+                  size={22}
+                  color="white"
+                />
+              </View>
+            </TouchableOpacity>
           </View>
 
           {/* PROFILE */}
@@ -178,7 +186,9 @@ export default function HomeScreen() {
                 Informasi Terbaru
               </Text>
 
-              <TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => navigation.navigate("AllNewsHome")}
+              >
                 <Text className="text-green-600 font-semibold">
                   Lihat semua
                 </Text>
