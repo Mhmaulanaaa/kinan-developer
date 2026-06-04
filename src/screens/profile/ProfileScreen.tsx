@@ -139,7 +139,7 @@ export default function ProfileScreen() {
 
         {/* LOGOUT */}
         <TouchableOpacity
-          className="bg-red-500 py-4 rounded-2xl mt-8"
+          className="bg-green-500 py-4 rounded-2xl mt-8"
           activeOpacity={0.8}
           onPress={() => {
             navigation.navigate("Login");
@@ -147,6 +147,7 @@ export default function ProfileScreen() {
           }}
         >
           <Text className="text-white text-center font-bold text-base">
+            <Ionicons name="log-out" size={20} color="white" className="mr-5" />{" "}
             Keluar Akun
           </Text>
         </TouchableOpacity>
