@@ -110,7 +110,7 @@ export const registerSuccessToast = () => {
     props: {
       render: () => (
         <CustomToast
-          bgColor="#9333ea"
+          bgColor="#16a34a"
           title="Registrasi Berhasil"
           message="Akun berhasil dibuat"
           icon={<Ionicons name="person-add" size={24} color="white" />}

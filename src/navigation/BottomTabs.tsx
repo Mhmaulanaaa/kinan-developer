@@ -84,7 +84,7 @@ export default function BottomTabs() {
               iconName = focused ? "chatbubble" : "chatbubble-outline";
               break;
 
-            case "Notif":
+            case "Notifikasi":
               iconName = focused ? "notifications" : "notifications-outline";
               break;
 
@@ -137,13 +137,7 @@ export default function BottomTabs() {
       <Tab.Screen name="Home" component={HomeScreen} />
       <Tab.Screen name="Chat" component={ChatScreen} />
       <Tab.Screen name="Layanan" component={LayananScreen} />
-      <Tab.Screen
-        name="Notif"
-        component={NotificationScreen}
-        options={{
-          tabBarLabel: "Notifikasi",
-        }}
-      />
+      <Tab.Screen name="Notifikasi" component={NotificationScreen} />
       <Tab.Screen name="Profile" component={ProfileScreen} />
     </Tab.Navigator>
   );

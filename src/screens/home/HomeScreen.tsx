@@ -98,7 +98,7 @@ export default function HomeScreen() {
 
             <TouchableOpacity
               activeOpacity={0.8}
-              onPress={() => navigation.navigate("Notifications")}
+              onPress={() => navigation.navigate("Notifikasi")}
             >
               <View className="bg-white/20 p-3 rounded-full">
                 <Ionicons

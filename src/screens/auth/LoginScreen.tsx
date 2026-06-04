@@ -1,5 +1,6 @@
 import { View, Text, TouchableOpacity, Image } from "react-native";
 import LoginImage from "../../assets/logo/KINAN.png";
+import { loginSuccessToast as loginSuccessToastConfig } from "../../utils/toastConfig";
 
 export default function LandingScreen({ navigation }: any) {
   return (
@@ -33,7 +34,9 @@ export default function LandingScreen({ navigation }: any) {
         {/* BUTTON MASUK */}
         <TouchableOpacity
           className="bg-green-600 py-4 rounded-2xl mt-10"
-          onPress={() => navigation.navigate("SignIn")}
+          onPress={() => {
+            navigation.navigate("SignIn");
+          }}
         >
           <Text className="text-white text-center font-bold text-lg">
             Masuk

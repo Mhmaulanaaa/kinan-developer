@@ -9,6 +9,7 @@ import {
 } from "react-native";
 
 import LoginImage from "../../assets/logo/KINAN.png";
+import { loginSuccessToast as loginSuccessToastConfig } from "../../utils/toastConfig";
 
 export default function SignInScreen({ navigation }: any) {
   const [email, setEmail] = useState("");
@@ -76,7 +77,10 @@ export default function SignInScreen({ navigation }: any) {
           {/* BUTTON LOGIN */}
           <TouchableOpacity
             className="bg-green-600 py-4 rounded-2xl shadow-sm"
-            onPress={handleLogin}
+            onPress={() => {
+              handleLogin();
+              loginSuccessToastConfig();
+            }}
           >
             <Text className="text-center text-white font-bold text-lg">
               Login
@@ -87,7 +91,11 @@ export default function SignInScreen({ navigation }: any) {
           <View className="flex-row justify-center mt-7">
             <Text className="text-gray-500">Belum punya akun?</Text>
 
-            <TouchableOpacity onPress={() => navigation.navigate("Register")}>
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate("Register");
+              }}
+            >
               <Text className="text-green-700 font-bold ml-2">Daftar</Text>
             </TouchableOpacity>
           </View>

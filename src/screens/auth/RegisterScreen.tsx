@@ -9,6 +9,7 @@ import {
 } from "react-native";
 
 import LoginImage from "../../assets/logo/KINAN.png";
+import { registerSuccessToast as registerSuccessToastConfig } from "../../utils/toastConfig";
 
 export default function RegisterScreen({ navigation }: any) {
   const [name, setName] = useState("");
@@ -89,7 +90,10 @@ export default function RegisterScreen({ navigation }: any) {
           {/* BUTTON */}
           <TouchableOpacity
             className="bg-green-600 py-4 rounded-2xl"
-            onPress={handleRegister}
+            onPress={() => {
+              handleRegister();
+              registerSuccessToastConfig();
+            }}
           >
             <Text className="text-center text-white font-bold text-lg">
               Daftar Sekarang
