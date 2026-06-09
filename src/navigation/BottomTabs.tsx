@@ -20,8 +20,8 @@ export default function BottomTabs() {
         headerShown: false,
 
         tabBarStyle: {
-          height: 70 + insets.bottom,
-          paddingBottom: insets.bottom > 0 ? insets.bottom : 10,
+          height: 75 + insets.bottom,
+          paddingBottom: insets.bottom > 0 ? insets.bottom : 12,
           paddingTop: 10,
           borderTopWidth: 0,
           elevation: 10,
@@ -46,21 +46,19 @@ export default function BottomTabs() {
             return (
               <View
                 style={{
+                  position: "relative",
                   width: 60,
                   height: 60,
                   borderRadius: 30,
                   backgroundColor: focused ? "#16a34a" : "#f3f4f6",
                   justifyContent: "center",
                   alignItems: "center",
-                  top: -20,
+                  top: -25,
 
-                  shadowColor: "#000",
-                  shadowOffset: {
-                    width: 0,
-                    height: 4,
-                  },
-                  shadowOpacity: 0.15,
-                  shadowRadius: 4,
+                  shadowColor: "#000000",
+                  shadowOffset: { width: 0, height: -4 },
+                  shadowOpacity: 0.08,
+                  shadowRadius: 12,
                   elevation: 4,
                 }}
               >
@@ -106,7 +104,8 @@ export default function BottomTabs() {
           <View
             style={{
               alignItems: "center",
-              marginTop: 2,
+              marginTop: -2,
+              marginBottom: 8, // tambah ini
             }}
           >
             <Text
@@ -127,6 +126,7 @@ export default function BottomTabs() {
                   borderRadius: 999,
                   backgroundColor: "#16a34a",
                   marginTop: 4,
+                  bottom: 4,
                 }}
               />
             )}

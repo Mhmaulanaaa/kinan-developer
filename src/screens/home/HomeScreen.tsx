@@ -107,6 +107,9 @@ export default function HomeScreen() {
                   color="white"
                 />
               </View>
+              <View className="absolute -top-1 -right-1 bg-red-500 w-5 h-5 rounded-full items-center justify-center">
+                <Text className="text-white text-[10px]">3</Text>
+              </View>
             </TouchableOpacity>
           </View>
 
@@ -124,6 +127,9 @@ export default function HomeScreen() {
 
               <Text className="text-white text-xl font-bold mt-1">
                 dr. Sarah Wijaya, Sp.JP
+              </Text>
+              <Text className="text-green-100 mt-1">
+                Spesialis Penyakit Dalam
               </Text>
 
               <View className="flex-row items-center mt-2">
@@ -147,7 +153,7 @@ export default function HomeScreen() {
               {quickMenus.map((item, index) => (
                 <TouchableOpacity
                   key={index}
-                  activeOpacity={0.8}
+                  activeOpacity={0.9}
                   onPress={() => navigation.navigate(item.screen as any)}
                   className="w-[30%] bg-white rounded-3xl p-4 items-center mb-4 shadow-sm"
                   style={{

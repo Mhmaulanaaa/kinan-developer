@@ -7,11 +7,10 @@ import {
 } from "react-native";
 
 import { Ionicons } from "@expo/vector-icons";
-
 import { useNavigation } from "@react-navigation/native";
-
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { useState } from "react";
 
 const layanan = [
   {
@@ -60,6 +59,11 @@ const layanan = [
 
 export default function LayananScreen() {
   const navigation = useNavigation<any>();
+  const [search, setSearch] = useState("");
+
+  const filteredLayanan = layanan.filter((item) =>
+    item.title.toLowerCase().includes(search.toLowerCase()),
+  );
 
   return (
     <SafeAreaView className="flex-1 bg-white pt-8 px-5">
@@ -70,7 +74,12 @@ export default function LayananScreen() {
       <View className="bg-[#f5f5f5] rounded-2xl px-4 py-1 mt-5 flex-row items-center">
         <Ionicons name="search" size={20} color="#9ca3af" />
 
-        <TextInput placeholder="Cari layanan..." className="flex-1 ml-3 py-3" />
+        <TextInput
+          placeholder="Cari layanan..."
+          className="flex-1 ml-3 py-3"
+          value={search}
+          onChangeText={setSearch}
+        />
       </View>
 
       <Text className="text-lg font-bold text-gray-800 mt-8 mb-5">
@@ -78,28 +87,36 @@ export default function LayananScreen() {
       </Text>
 
       <View className="flex-row flex-wrap justify-between">
-        {layanan.map((item, index) => (
-          <TouchableOpacity
-            key={index}
-            activeOpacity={0.8}
-            onPress={() => navigation.navigate(item.screen)}
-            className="w-[31%] bg-white border border-gray-100 rounded-3xl p-4 mb-4 items-center shadow-sm"
-          >
-            <View
-              className={`${item.color} w-16 h-16 rounded-2xl items-center justify-center`}
+        {filteredLayanan.length > 0 ? (
+          filteredLayanan.map((item, index) => (
+            <TouchableOpacity
+              key={index}
+              activeOpacity={0.8}
+              onPress={() => navigation.navigate(item.screen)}
+              className="w-[31%] bg-white border border-gray-100 rounded-3xl p-4 mb-4 items-center shadow-sm"
             >
-              <Ionicons
-                name={item.icon as any}
-                size={28}
-                color={item.iconColor}
-              />
-            </View>
+              <View
+                className={`${item.color} w-16 h-16 rounded-2xl items-center justify-center`}
+              >
+                <Ionicons
+                  name={item.icon as any}
+                  size={28}
+                  color={item.iconColor}
+                />
+              </View>
 
-            <Text className="font-semibold text-gray-800 mt-4 text-xs text-center leading-4">
-              {item.title}
-            </Text>
-          </TouchableOpacity>
-        ))}
+              <Text className="font-semibold text-gray-800 mt-4 text-xs text-center leading-4">
+                {item.title}
+              </Text>
+            </TouchableOpacity>
+          ))
+        ) : (
+          <View className="w-full items-center py-10">
+            <Ionicons name="search-outline" size={40} color="#9ca3af" />
+
+            <Text className="text-gray-500 mt-3">Layanan tidak ditemukan</Text>
+          </View>
+        )}
       </View>
 
       {/* HISTORY */}

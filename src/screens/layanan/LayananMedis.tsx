@@ -2,7 +2,38 @@ import { View, Text, ScrollView, TouchableOpacity, Image } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
-const medis = ["Poli Umum", "Poli Bedah", "Rawat Inap", "IGD", "Laboratorium"];
+const medis = [
+  {
+    title: "Poli Umum",
+    desc: "Konsultasi dan pemeriksaan umum",
+    icon: "medkit",
+    color: "#16a34a",
+  },
+  {
+    title: "Poli Bedah",
+    desc: "Pelayanan konsultasi bedah",
+    icon: "cut",
+    color: "#2563eb",
+  },
+  {
+    title: "Rawat Inap",
+    desc: "Perawatan pasien menginap",
+    icon: "bed",
+    color: "#ea580c",
+  },
+  {
+    title: "IGD",
+    desc: "Instalasi Gawat Darurat 24 Jam",
+    icon: "alert-circle",
+    color: "#dc2626",
+  },
+  {
+    title: "Laboratorium",
+    desc: "Pemeriksaan laboratorium medis",
+    icon: "flask",
+    color: "#9333ea",
+  },
+];
 
 export default function LayananMedisScreen() {
   const navigation = useNavigation<any>();
@@ -47,17 +78,50 @@ export default function LayananMedisScreen() {
               <TouchableOpacity
                 key={index}
                 activeOpacity={0.8}
-                className="bg-green-50 rounded-3xl p-5 mb-4 flex-row items-center border border-green-100"
+                className="bg-white rounded-3xl p-4 mb-4 flex-row items-center"
+                style={{
+                  shadowColor: "#000",
+                  shadowOffset: {
+                    width: 0,
+                    height: 2,
+                  },
+                  shadowOpacity: 0.05,
+                  shadowRadius: 5,
+                  elevation: 2,
+                }}
               >
-                <View className="w-14 h-14 rounded-2xl bg-green-100 items-center justify-center">
-                  <Ionicons name="medkit" size={26} color="#16a34a" />
+                <View
+                  style={{
+                    backgroundColor: `${item.color}15`,
+                  }}
+                  className="w-16 h-16 rounded-2xl items-center justify-center"
+                >
+                  <Ionicons
+                    name={item.icon as any}
+                    size={28}
+                    color={item.color}
+                  />
                 </View>
 
-                <Text className="text-base font-bold text-gray-800 ml-4 flex-1">
-                  {item}
-                </Text>
+                <View className="flex-1 ml-4">
+                  <Text className="text-base font-bold text-gray-800">
+                    {item.title}
+                  </Text>
 
-                <Ionicons name="chevron-forward" size={20} color="#9ca3af" />
+                  <Text className="text-gray-500 text-sm mt-1">
+                    {item.desc}
+                  </Text>
+
+                  <View className="flex-row items-center mt-2">
+                    <View className="w-2 h-2 rounded-full bg-green-500 mr-2" />
+
+                    <Text className="text-green-600 text-xs font-semibold">
+                      Tersedia
+                    </Text>
+                  </View>
+                </View>
+
+                <Ionicons name="chevron-forward" size={22} color="#9ca3af" />
               </TouchableOpacity>
             ))}
           </ScrollView>
