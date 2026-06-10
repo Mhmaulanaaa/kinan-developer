@@ -3,10 +3,30 @@ import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
 const keuangan = [
-  "Pengajuan Dana",
-  "Laporan Keuangan",
-  "Tagihan Pasien",
-  "Verifikasi Pembayaran",
+  {
+    title: "Pengajuan Dana",
+    desc: "Ajukan kebutuhan dana operasional",
+    icon: "wallet",
+    color: "#10b981",
+  },
+  {
+    title: "Laporan Keuangan",
+    desc: "Lihat laporan transaksi dan anggaran",
+    icon: "document-text",
+    color: "#3b82f6",
+  },
+  {
+    title: "Tagihan Pasien",
+    desc: "Informasi tagihan dan pembayaran pasien",
+    icon: "receipt",
+    color: "#f59e0b",
+  },
+  {
+    title: "Verifikasi Pembayaran",
+    desc: "Konfirmasi dan validasi pembayaran",
+    icon: "checkmark-done",
+    color: "#8b5cf6",
+  },
 ];
 
 export default function LayananKeuanganScreen() {
@@ -42,19 +62,49 @@ export default function LayananKeuanganScreen() {
         />
         {/* CONTENT CARD */}
         <View className="flex-1 bg-white -mt-12 rounded-t-[35px] px-5 pt-6">
+          <View className="bg-emerald-50 rounded-3xl p-4 mb-5 flex-row">
+            <Ionicons name="information-circle" size={24} color="#059669" />
+
+            <View className="ml-3 flex-1">
+              <Text className="font-bold text-gray-800">
+                Informasi Keuangan
+              </Text>
+
+              <Text className="text-gray-600 text-sm mt-1">
+                Kelola pengajuan dana, tagihan, dan verifikasi pembayaran dengan
+                mudah.
+              </Text>
+            </View>
+          </View>
           <ScrollView>
             {keuangan.map((item, index) => (
               <TouchableOpacity
                 key={index}
-                className="bg-emerald-50 rounded-3xl p-5 mb-4 flex-row items-center"
+                activeOpacity={0.85}
+                className="bg-white border border-gray-100 rounded-3xl p-4 mb-4 flex-row items-center"
               >
-                <View className="w-14 h-14 rounded-2xl bg-emerald-100 items-center justify-center">
-                  <Ionicons name="cash" size={26} color="#059669" />
+                <View
+                  style={{ backgroundColor: `${item.color}20` }}
+                  className="w-14 h-14 rounded-2xl items-center justify-center"
+                >
+                  <Ionicons
+                    name={item.icon as any}
+                    size={26}
+                    color={item.color}
+                  />
                 </View>
 
-                <Text className="text-base font-bold text-gray-800 ml-4">
-                  {item}
-                </Text>
+                <View className="flex-1 ml-4">
+                  <Text className="font-bold text-gray-800 text-base">
+                    {item.title}
+                  </Text>
+
+                  <Text className="text-gray-500 text-sm mt-1">
+                    {item.desc}
+                  </Text>
+                </View>
+
+                <Ionicons name="chevron-forward" size={20} color="#9ca3af" />
               </TouchableOpacity>
             ))}
           </ScrollView>

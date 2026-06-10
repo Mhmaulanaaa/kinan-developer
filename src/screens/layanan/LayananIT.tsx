@@ -3,10 +3,30 @@ import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
 const itServices = [
-  "Helpdesk IT",
-  "Maintenance Server",
-  "Akses WiFi",
-  "Monitoring Sistem",
+  {
+    title: "Permintaan Perangkat",
+    desc: "Ajukan permintaan perangkat IT baru",
+    icon: "laptop",
+    color: "#22c55e",
+  },
+  {
+    title: "Bantuan Teknis",
+    desc: "Dapatkan bantuan untuk masalah IT",
+    icon: "help-circle",
+    color: "#3b82f6",
+  },
+  {
+    title: "Akses Software",
+    desc: "Ajukan akses ke software tertentu",
+    icon: "key",
+    color: "#f97316",
+  },
+  {
+    title: "Laporan Masalah",
+    desc: "Laporkan masalah IT yang Anda alami",
+    icon: "bug",
+    color: "#8b5cf6",
+  },
 ];
 
 export default function LayananITScreen() {
@@ -50,12 +70,22 @@ export default function LayananITScreen() {
                 className="bg-green-50 rounded-3xl p-5 mb-4 flex-row items-center"
               >
                 <View className="w-14 h-14 rounded-2xl bg-green-100 items-center justify-center">
-                  <Ionicons name="desktop" size={26} color="#16a34a" />
+                  <Ionicons
+                    name={item.icon as any}
+                    size={28}
+                    color={item.color}
+                  />
                 </View>
 
-                <Text className="text-base font-bold text-gray-800 ml-4">
-                  {item}
-                </Text>
+                <View className="flex-1 ml-4">
+                  <Text className="font-bold text-gray-800 text-base">
+                    {item.title}
+                  </Text>
+
+                  <Text className="text-gray-500 mt-1">{item.desc}</Text>
+                </View>
+
+                <Ionicons name="chevron-forward" size={20} color="#9ca3af" />
               </TouchableOpacity>
             ))}
           </ScrollView>
