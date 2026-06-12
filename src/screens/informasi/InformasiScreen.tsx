@@ -152,8 +152,8 @@ export default function InformasiScreen() {
             <Text className="text-gray-600 mt-1">Total Informasi</Text>
           </View>
 
-          <View className="flex-1 bg-blue-50 rounded-3xl p-4 ml-2">
-            <Text className="text-blue-700 text-2xl font-bold">
+          <View className="flex-1 bg-green-50 rounded-3xl p-4 ml-2">
+            <Text className="text-green-700 text-2xl font-bold">
               {infos.filter((i) => i.status === "BARU").length}
             </Text>
             <Text className="text-gray-600 mt-1">Informasi Baru</Text>

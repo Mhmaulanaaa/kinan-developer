@@ -14,24 +14,28 @@ const statuses = [
     color: "bg-green-100",
     text: "text-green-700",
     icon: "checkmark-circle",
+    iconColor: "#16a34a",
   },
   {
     title: "Sedang Operasi",
     color: "bg-blue-100",
     text: "text-blue-700",
     icon: "medkit",
+    iconColor: "#3b82f6",
   },
   {
     title: "Istirahat",
     color: "bg-yellow-100",
     text: "text-yellow-700",
     icon: "cafe",
+    iconColor: "#f59e0b",
   },
   {
     title: "Offline",
     color: "bg-red-100",
     text: "text-red-700",
     icon: "close-circle",
+    iconColor: "#ef4444",
   },
 ];
 
@@ -92,7 +96,7 @@ export default function ChangeStatusScreen() {
                     <Ionicons
                       name={item.icon as any}
                       size={26}
-                      color="#16a34a"
+                      color={item.iconColor}
                     />
                   </View>
 
